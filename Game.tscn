@@ -146,6 +146,8 @@ margin_bottom = 10.0
 rect_rotation = 0.0597288
 bbcode_enabled = true
 
+[node name="Drone_Container" type="Spatial" parent="."]
+
 [connection signal="body_entered" from="NPC/Area" to="NPC" method="_on_Area_body_entered"]
 [connection signal="body_exited" from="NPC/Area" to="NPC" method="_on_Area_body_exited"]
 [connection signal="timeout" from="UI/Timer" to="UI" method="_on_Timer_timeout"]
