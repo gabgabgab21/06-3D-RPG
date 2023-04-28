@@ -1,9 +1,24 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
 [ext_resource path="res://Terrain.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Target/Target.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Player/RayCast.gd" type="Script" id=5]
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_albedo_tex_msdf = true
+albedo_color = Color( 1, 0, 0, 1 )
+emission_enabled = true
+emission = Color( 1, 0, 0, 1 )
+emission_energy = 4.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="SphereMesh" id=2]
+material = SubResource( 1 )
+radius = 0.5
+height = 1.0
 
 [node name="Game" type="Spatial"]
 
@@ -16,6 +31,18 @@ script = ExtResource( 2 )
 [node name="Camera" type="Camera" parent="Player/Pivot"]
 transform = Transform( -1, 1.51808e-08, -8.60946e-08, 0, 0.984808, 0.173648, 8.74228e-08, 0.173648, -0.984808, 0, 5, -8 )
 
+[node name="RayCast" type="RayCast" parent="Player/Pivot"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
+enabled = true
+cast_to = Vector3( 0, 0, 100 )
+script = ExtResource( 5 )
+
+[node name="Reticule" type="Position3D" parent="Player/Pivot/RayCast"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 50 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Player/Pivot/RayCast/Reticule"]
+mesh = SubResource( 2 )
+
 [node name="lowpoly_scene" parent="." instance=ExtResource( 3 )]
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
 
@@ -23,3 +50,27 @@ transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
 
 [node name="Target" parent="Target_Container" instance=ExtResource( 4 )]
 transform = Transform( 0.939693, 0, 0.34202, 0, 1, 0, -0.34202, 0, 0.939693, -27, 4, 9 )
+
+[node name="Target_Container2" type="Spatial" parent="."]
+transform = Transform( 0.999289, 0, 0.0377076, -0.0367574, 0.22308, 0.974107, -0.00841182, -0.9748, 0.222921, 10, -7.11999, -10.631 )
+
+[node name="Target" parent="Target_Container2" instance=ExtResource( 4 )]
+transform = Transform( 0.981285, -0.109632, -0.158317, 0.113441, 0.993428, 0.0151976, 0.155611, -0.0328733, 0.987272, -49.4553, 16.5728, 7.3765 )
+
+[node name="Target_Container3" type="Spatial" parent="."]
+transform = Transform( -0.415369, 0.0495318, 0.908303, -0.908662, 0.0239988, -0.416842, -0.0424451, -0.998484, 0.0350393, 11.3839, -12.1637, -21.7627 )
+
+[node name="Target" parent="Target_Container3" instance=ExtResource( 4 )]
+transform = Transform( 0.396452, 0.0195269, 0.917848, 0.0177049, 0.999425, -0.0289098, -0.917885, 0.0277119, 0.395879, -19.532, 3.61396, 7.0455 )
+
+[node name="Target_Container4" type="Spatial" parent="."]
+transform = Transform( -0.415369, 0.0495318, 0.908303, -0.908662, 0.0239988, -0.416842, -0.0424451, -0.998484, 0.0350393, 11.3839, -12.1637, -21.7627 )
+
+[node name="Target" parent="Target_Container4" instance=ExtResource( 4 )]
+transform = Transform( 0.0731075, 0.411679, 0.908392, -0.960265, 0.275036, -0.0473628, -0.269339, -0.868834, 0.415429, -3.79224, 25.7815, -30.6763 )
+
+[node name="Target_Container5" type="Spatial" parent="."]
+transform = Transform( -0.415369, 0.0495318, 0.908303, -0.908662, 0.0239988, -0.416842, -0.0424451, -0.998484, 0.0350393, 11.3839, -12.1637, -21.7627 )
+
+[node name="Target" parent="Target_Container5" instance=ExtResource( 4 )]
+transform = Transform( -0.0446228, 0.959236, -0.279056, -0.849865, 0.110375, 0.515308, 0.525102, 0.260155, 0.8103, -8.80884, -30.7163, -19.9809 )
