@@ -41,4 +41,4 @@ func _on_Tween_tween_all_completed():
 
 
 func _on_Area_body_entered(body):
-	body.damage()
+	body.dameage()
