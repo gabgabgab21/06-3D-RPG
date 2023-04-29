@@ -5,13 +5,15 @@ onready var Dialogue = get_node("/root/Game/UI/Dialogue")
 var dialogue = [
 	"Welcome to the game! (Press E to continue)"
 	,"Your life depends on your speed and accuracy."
-	,"Shoot the five targets and defeat the drone before you run out of time."
+	,"Shoot the five targets and defeat the drone before you run out of time!"
 	,"The challenge starts at soon as you press E."
 ]
 
 func _ready():
 	$AnimationPlayer.play("Idle")
 	Dialogue.connect("finished_dialogue", self, "finished")
+
+
 
 func _on_Area_body_entered(body):
 	Dialogue.start_dialogue(dialogue)
