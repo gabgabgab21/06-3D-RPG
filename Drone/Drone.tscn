@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Assets/Metal034_1K_Color.jpg" type="Texture" id=1]
 [ext_resource path="res://Drone/Drone.gd" type="Script" id=2]
@@ -119,6 +119,10 @@ normal_enabled = true
 normal_scale = 1.0
 normal_texture = ExtResource( 8 )
 
+[sub_resource type="CylinderShape" id=7]
+height = 50.0
+radius = 3.0
+
 [node name="Drone" type="KinematicBody"]
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
 script = ExtResource( 2 )
@@ -138,3 +142,15 @@ material/2 = SubResource( 5 )
 material/3 = SubResource( 6 )
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="Area" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.242708, 2.04988 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+transform = Transform( 1, 0, 0, 0, 0.661862, -0.749626, 0, 0.749626, 0.661862, 0, -18.42, -21.2 )
+shape = SubResource( 7 )
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+
+[connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
+[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
