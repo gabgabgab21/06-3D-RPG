@@ -85,6 +85,7 @@ transform = Transform( -0.415369, 0.0495318, 0.908303, -0.908662, 0.0239988, -0.
 transform = Transform( -0.0446228, 0.959236, -0.279056, -0.849865, 0.110375, 0.515308, 0.525102, 0.260155, 0.8103, -8.80884, -30.7163, -19.9809 )
 
 [node name="Drone_Container" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -29.0248, 0 )
 
 [node name="Drone" parent="Drone_Container" instance=ExtResource( 10 )]
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 4.206, 20, 100 )
