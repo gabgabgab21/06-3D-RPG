@@ -40,7 +40,7 @@ script = ExtResource( 2 )
 transform = Transform( -1, 1.51808e-08, -8.60946e-08, 0, 0.984808, 0.173648, 8.74228e-08, 0.173648, -0.984808, 0, 5, -8 )
 
 [node name="RayCast" type="RayCast" parent="Player/Pivot"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 1.5 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
 enabled = true
 cast_to = Vector3( 0, 0, 100 )
 script = ExtResource( 5 )
@@ -109,7 +109,7 @@ script = ExtResource( 9 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_rotation = -0.153621
-color = Color( 1, 0, 0, 0 )
+color = Color( 1, 0, 0, 1 )
 
 [node name="Background" type="ColorRect" parent="UI"]
 anchor_right = 1.0
