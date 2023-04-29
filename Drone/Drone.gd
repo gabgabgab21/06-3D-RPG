@@ -41,5 +41,4 @@ func _on_Tween_tween_all_completed():
 
 
 func _on_Area_body_entered(body):
-	if body.has_method("damage"):
-		body.damage()
+	body.damage()

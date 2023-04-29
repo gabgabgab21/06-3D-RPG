@@ -40,7 +40,7 @@ script = ExtResource( 2 )
 transform = Transform( -1, 1.51808e-08, -8.60946e-08, 0, 0.984808, 0.173648, 8.74228e-08, 0.173648, -0.984808, 0, 5, -8 )
 
 [node name="RayCast" type="RayCast" parent="Player/Pivot"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 1.5 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
 enabled = true
 cast_to = Vector3( 0, 0, 100 )
 script = ExtResource( 5 )
@@ -90,8 +90,6 @@ transform = Transform( -0.0446228, 0.959236, -0.279056, -0.849865, 0.110375, 0.5
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 4.206, 20, 100 )
 collision_layer = 2
 collision_mask = 2
-height = 20
-speed = 5
 
 [node name="NPC" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 37.3908, 0.612839, -8.98438 )
@@ -111,7 +109,7 @@ script = ExtResource( 9 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_rotation = -0.153621
-color = Color( 1, 0, 0, 0 )
+color = Color( 1, 0, 0, 1 )
 
 [node name="Background" type="ColorRect" parent="UI"]
 anchor_right = 1.0
